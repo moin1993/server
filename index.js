@@ -6,7 +6,7 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173"], // ✅ remove trailing slash
+    origin: ["http://localhost:5173"], 
     credentials: true,
   })
 );
@@ -50,6 +50,17 @@ async function run() {
         res.status(500).send({ message: "Error inserting transaction" });
       }
     });
+
+    app.get("/models-collection", async (req, res) => {
+      const email = req.query.email;
+      const query = email ? { userEmail: email } : {};
+      const result = await modelCollection.find(query).toArray();
+      res.send(result);
+    });
+
+    
+
+   
 
     // app.post('/models-collection', async(req,res)=>{
     //   const result= modelCollection.insertOne()
