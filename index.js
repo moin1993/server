@@ -67,10 +67,10 @@ async function run() {
     app.patch("/models-collection/:id", async (req, res) => {
       const id = req.params.id;
       const updatedData = req.body;
-    //   const result = await modelCollection.updateOne(
-    //     { _id: new ObjectId(id) },
-    //     { $set: updatedData }
-    //   );
+      const result = await modelCollection.updateOne(
+        { _id: new ObjectId(id) },
+        { $set: updatedData }
+      );
     //   res.send(result);
     // });
 
