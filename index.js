@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const port = 3000;
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 app.use(express.json());
 app.use(
   cors({
@@ -63,6 +63,22 @@ async function run() {
       const result = await modelCollection.findOne({ _id: new ObjectId(id) });
       res.send(result);
     });
+
+    app.patch("/models-collection/:id", async (req, res) => {
+    //   const id = req.params.id;
+    //   const updatedData = req.body;
+    //   const result = await modelCollection.updateOne(
+    //     { _id: new ObjectId(id) },
+    //     { $set: updatedData }
+    //   );
+    //   res.send(result);
+    // });
+
+    // app.delete("/models-collection/:id", async (req, res) => {
+    //   const id = req.params.id;
+    //   const result = await modelCollection.deleteOne({ _id: new ObjectId(id) });
+    //   res.send(result);
+    // });
 
     
 
