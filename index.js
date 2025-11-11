@@ -71,8 +71,8 @@ async function run() {
         { _id: new ObjectId(id) },
         { $set: updatedData }
       );
-    //   res.send(result);
-    // });
+      res.send(result);
+    });
 
     // app.delete("/models-collection/:id", async (req, res) => {
     //   const id = req.params.id;
