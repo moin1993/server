@@ -74,11 +74,11 @@ async function run() {
       res.send(result);
     });
 
-    // app.delete("/models-collection/:id", async (req, res) => {
-    //   const id = req.params.id;
-    //   const result = await modelCollection.deleteOne({ _id: new ObjectId(id) });
-    //   res.send(result);
-    // });
+    app.delete("/models-collection/:id", async (req, res) => {
+      const id = req.params.id;
+      const result = await modelCollection.deleteOne({ _id: new ObjectId(id) });
+      res.send(result);
+    });
 
     
 
